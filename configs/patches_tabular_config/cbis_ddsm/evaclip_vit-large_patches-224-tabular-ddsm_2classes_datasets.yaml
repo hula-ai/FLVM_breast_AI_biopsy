@@ -1,0 +1,45 @@
+hyperparams:
+  aim_repo: "/home/hqvo2/Projects/aim_experiments/breast_cancer_base_image_tabular"
+  experiment_name: "ddsm-2classes-image-tabular-classifier"
+  run_desc: "fusion_evaclip-vit-large_224_freeze-backbone"
+  trial_runs: {
+    "enable": True
+  }
+  save_root:  "/home/hqvo2/Projects/MultiMEDal_multimodal_medical/experiments/evalclip-vit-large_combined_image_tabular_classifier"
+
+  distributed_mode: 'DDP'
+  mixed_precision: 'fp16'
+
+  dataset: [
+      ["CBIS-DDSM-tfds-with-tabular-2classes"],
+      ["CBIS-DDSM-tfds-with-tabular-2classes"],
+      ["CBIS-DDSM-tfds-with-tabular-2classes"],
+  ]
+  datadir: [[None], [None], [None]]
+  data_type: "image_tabular"
+  tab_to_text: True
+  transform: None
+  
+  image_size: 224
+
+  find_unused_parameters: True
+  model_name: "open_clip"
+  pretrain_model_name: 'EVA02-L-14'
+  pretrain_data: 'merged2b_s4b_b131k'
+  freeze_backbone: True
+  
+  drop_rate: 0.7
+  
+  resume_ckpt: null
+  pretrain_ckpt: null
+  num_epochs: 20
+  warmup_eps: 2
+  njobs: 4
+  batch_size: 64
+  use_weighted_classes: False
+  balanced_sampling: False
+
+  loss: "cross-entropy"
+  opt: "Adam"
+
+  log_freq_eps: 1
