@@ -1,4 +1,11 @@
-## Frozen Large-scale Pretrained Vision-Language Models are the Effective Foundational Backbone for Multimodal Breast Cancer Prediction
+## Frozen Large-scale Pretrained Vision-Language Models are the Effective Foundational Backbone for Multimodal Breast Cancer Prediction [[Paper link](https://www.techrxiv.org/doi/full/10.36227/techrxiv.170594643.34409575/v1)]
+
+[![Generic badge](https://img.shields.io/badge/python-3.8.18-blue.svg)](https://www.python.org/downloads/release/python-379/)
+[![Generic badge](https://img.shields.io/badge/cuda-11.7-f0e22.svg)](https://developer.nvidia.com/cuda-10.1-download-archive-base)
+[![Generic badge](https://img.shields.io/badge/pytorch-1.13.1-f50e22.svg)](https://pytorch.org/get-started/previous-versions/)
+[![Generic badge](https://img.shields.io/badge/timm-0.9.1-e67e22.svg)](https://www.tensorflow.org/install)
+[![Generic badge](https://img.shields.io/badge/transformers-4.44.0-f68.svg)](https://www.tensorflow.org/install)
+
 #### Authors: Hung Q. Vo, Lin Wang, Kelvin K. Wong, Chika F. Ezeana, Xiaohui Yu, Wei Yang, Jenny Chang, Hien V. Nguyen, and Stephen T.C. Wong
 
 ## Abstract
