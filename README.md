@@ -55,6 +55,8 @@ python -m torch.distributed.launch --nproc_per_node=4 --master_port=6006 \
 ```
 ### For Testing
 ```sh
+cd src/test
+
 python -m torch.distributed.launch --nproc_per_node=4 --master_port=6006 \
     test.py --config-path <PATH TO YAML TESTING CONFIG>
 ```
@@ -66,7 +68,38 @@ python -m torch.distributed.launch --nproc_per_node=4 --master_port=6006 \
 ![alt text](imgs/result-1.png)
 ![alt text](imgs/embed_crossval.png)
 ## License
+MIT License
 
+Copyright (c) 2024 HULA-AI
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 ## Acknowledgement
-
+* [pytorch-image-models](https://github.com/huggingface/pytorch-image-models)
+* [EVA-CLIP](https://github.com/baaivision/EVA)
+* [Open-CLIP](https://github.com/mlfoundations/open_clip/)
 ## References
+**Sun, Quan, et al.** *"Eva-clip: Improved training techniques for clip at scale."* arXiv preprint arXiv:2303.15389 (2023).
+
+**Cherti, Mehdi, et al.** *"Reproducible scaling laws for contrastive language-image learning."* Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition. 2023.
+
+**Radford, Alec, et al.** *"Learning transferable visual models from natural language supervision." International conference on machine learning.* PMLR, 2021.
+
+**Lee, Rebecca Sawyer, et al.** *"A curated mammography data set for use in computer-aided detection and diagnosis research."* Scientific data 4.1 (2017): 1-9.
+
+**Jeong, Jiwoong J., et al.** *"The EMory BrEast imaging Dataset (EMBED): A racially diverse, granular dataset of 3.4 million screening and diagnostic mammographic images."* Radiology: Artificial Intelligence 5.1 (2023): e220047.
