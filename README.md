@@ -69,11 +69,11 @@ python -m torch.distributed.launch --nproc_per_node=4 --master_port=6006 \
 ```
 ## Models
 
-![alt text](imgs/multimodal_framework.png)
+![alt text](imgs/Multimodal_Framework.png)
 
 ## Results
-![alt text](imgs/result-1.png)
-![alt text](imgs/embed_crossval.png)
+![alt text](imgs/CBIS-DDSM_result.png)
+![alt text](imgs/EMBED_crossval.png)
 
 ## Citing
 ### BibTeX
