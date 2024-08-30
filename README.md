@@ -60,10 +60,11 @@ python -m torch.distributed.launch --nproc_per_node=4 --master_port=6006 \
 ```
 ## Models
 
-<iframe src="imgs/multimodal_framework.pdf" width="100%" height="500" frameborder="0" />
+![alt text](imgs/multimodal_framework.png)
 
 ## Results
-
+![alt text](imgs/result-1.png)
+![alt text](imgs/embed_crossval.png)
 ## License
 
 ## Acknowledgement
