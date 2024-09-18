@@ -1,4 +1,4 @@
-## Frozen Large-scale Pretrained Vision-Language Models are the Effective Foundational Backbone for Multimodal Breast Cancer Prediction [[Paper link](https://www.techrxiv.org/doi/full/10.36227/techrxiv.170594643.34409575/v1)]
+## Frozen Large-scale Pretrained Vision-Language Models are the Effective Foundational Backbone for Multimodal Breast Cancer Prediction [[Paper link](https://www.techrxiv.org/users/715048/articles/699670-frozen-large-scale-pretrained-vision-language-models-are-the-effective-foundational-backbone-for-multimodal-breast-cancer-prediction)]
 
 [![Generic badge](https://img.shields.io/badge/python-3.8.18-blue.svg)](https://www.python.org/downloads/release/python-379/)
 [![Generic badge](https://img.shields.io/badge/cuda-11.7-f0e22.svg)](https://developer.nvidia.com/cuda-10.1-download-archive-base)
@@ -97,7 +97,7 @@ Copyright (c) 2024 HULA-AI
 * [EVA-CLIP](https://github.com/baaivision/EVA)
 * [Open-CLIP](https://github.com/mlfoundations/open_clip/)
 ## References
-**Sun, Quan, et al.** *"Eva-clip: Improved training techniques for clip at scale."* arXiv preprint arXiv:2303.15389 (2023).
+**Fang, Yuxin, et al.** "Eva: Exploring the limits of masked visual representation learning at scale." Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition. 2023.
 
 **Cherti, Mehdi, et al.** *"Reproducible scaling laws for contrastive language-image learning."* Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition. 2023.
 
