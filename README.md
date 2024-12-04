@@ -1,4 +1,4 @@
-## Frozen Large-scale Pretrained Vision-Language Models are the Effective Foundational Backbone for Multimodal Breast Cancer Prediction [[Paper link](https://www.techrxiv.org/users/715048/articles/699670-frozen-large-scale-pretrained-vision-language-models-are-the-effective-foundational-backbone-for-multimodal-breast-cancer-prediction)]
+## Frozen Large-scale Pretrained Vision-Language Models are the Effective Foundational Backbone for Multimodal Breast Cancer Prediction [[JBHI Paper]([https://ieeexplore.ieee.org/abstract/document/10769012](https://ieeexplore.ieee.org/abstract/document/10769012))]
 
 [![Generic badge](https://img.shields.io/badge/python-3.8.18-blue.svg)](https://www.python.org/downloads/release/python-379/)
 [![Generic badge](https://img.shields.io/badge/cuda-11.7-f0e22.svg)](https://developer.nvidia.com/cuda-10.1-download-archive-base)
@@ -6,7 +6,7 @@
 [![Generic badge](https://img.shields.io/badge/timm-0.9.1-e67e22.svg)](https://www.tensorflow.org/install)
 [![Generic badge](https://img.shields.io/badge/transformers-4.44.0-f68.svg)](https://www.tensorflow.org/install)
 
-#### Authors: Hung Q. Vo, Lin Wang, Kelvin K. Wong, Chika F. Ezeana, Xiaohui Yu, Wei Yang, Jenny Chang, Hien V. Nguyen, and Stephen T.C. Wong
+#### Vo, Hung Q., Lin Wang, Kelvin K. Wong, Chika F. Ezeana, Xiaohui Yu, Wei Yang, Jenny Chang, Hien V. Nguyen, and Stephen TC Wong. "Frozen Large-scale Pretrained Vision-Language Models are the Effective Foundational Backbone for Multimodal Breast Cancer Prediction." IEEE Journal of Biomedical and Health Informatics (2024).
 
 ## Abstract
 Breast cancer is a pervasive global health
@@ -78,13 +78,17 @@ python -m torch.distributed.launch --nproc_per_node=4 --master_port=6006 \
 ## Citing
 ### BibTeX
 ```bibtex
-@article{vo2024frozen,
-  title={Frozen Large-scale Pretrained Vision-Language Models are an Effective Foundational Backbone for Enhancing Multimodal Breast Cancer Risk Assessment},
-  author={Vo, Hung Q and Wang, Lin and Wong, Kelvin K and Ezeana, Chika F and Yu, Xiaohui and Nguyen, Hien V and Wong, Stephen TC},
-  journal={Authorea Preprints},
+@ARTICLE{10769012,
+  author={Vo, Hung Q. and Wang, Lin and Wong, Kelvin K. and Ezeana, Chika F. and Yu, Xiaohui and Yang, Wei and Chang, Jenny and Nguyen, Hien V. and Wong, Stephen T.C.},
+  journal={IEEE Journal of Biomedical and Health Informatics}, 
+  title={Frozen Large-scale Pretrained Vision-Language Models are the Effective Foundational Backbone for Multimodal Breast Cancer Prediction}, 
   year={2024},
-  publisher={Authorea}
-}
+  volume={},
+  number={},
+  pages={1-14},
+  keywords={Breast cancer;Predictive models;Data models;Visualization;Training;Breast;Biological system modeling;Mammography;Decoding;Adaptation models;Multimodal Learning;Vision-Language Learning;Breast Cancer;Foundation Models;Large Vision Models;Large Language Models;Mammograms;Electronic Health Records (EHRs);Tabular Data;BI-RADS 3},
+  doi={10.1109/JBHI.2024.3507638}}
+
 ```
 
 ## License
