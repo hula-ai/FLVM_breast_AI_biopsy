@@ -1,0 +1,42 @@
+hyperparams:
+  aim_repo: "/home/hqvo2/Projects/aim_experiments/paper_multimodal_test_phase"
+  experiment_name: "ddsm-2classes-image-tabular-classifier"
+  run_desc: "fusion_evaclip-vit-giant_224_lr0.01_freeze-backbone"
+  
+  combine_crossval: False
+
+  save_root:  "/home/hqvo2/Projects/MultiMEDal_multimodal_medical/experiments/breast_cancer_multimodal_paper/evaclip-vit-giant_combined_image_tabular_classifier"
+
+  dataset: [
+    ["CBIS-DDSM-tfds-with-tabular-2classes"], 
+    ["CBIS-DDSM-tfds-with-tabular-2classes"], 
+    ["CBIS-DDSM-tfds-with-tabular-2classes"]
+  ]
+  datadir: [[None], [None], [None]]
+  data_type: "image_tabular"
+  tab_to_text: True
+  group_age: null
+  
+  image_size: 224
+
+  model_name: "open_clip"
+  pretrain_model_name: "EVA01-g-14"
+  pretrain_data: "laion400m_s11b_b41k"
+  drop_rate: 0.7
+
+  freeze_backbone: True
+  
+  # folder name is vit-large just because it was named incorrect
+  ckpts_list: [ 
+    "/home/hqvo2/Projects/MultiMEDal_multimodal_medical/experiments/evalclip-vit-large_combined_image_tabular_classifier/257007_2023-10-26 21:30:21/seed_42/best_state.pkl",
+    "/home/hqvo2/Projects/MultiMEDal_multimodal_medical/experiments/evalclip-vit-large_combined_image_tabular_classifier/257007_2023-10-26 21:30:21/seed_0/best_state.pkl",
+    "/home/hqvo2/Projects/MultiMEDal_multimodal_medical/experiments/evalclip-vit-large_combined_image_tabular_classifier/257007_2023-10-26 21:30:21/seed_1/best_state.pkl",
+    "/home/hqvo2/Projects/MultiMEDal_multimodal_medical/experiments/evalclip-vit-large_combined_image_tabular_classifier/257007_2023-10-26 21:30:21/seed_1234/best_state.pkl",
+    "/home/hqvo2/Projects/MultiMEDal_multimodal_medical/experiments/evalclip-vit-large_combined_image_tabular_classifier/257007_2023-10-26 21:30:21/seed_3407/best_state.pkl"
+  ]
+
+  njobs: 4
+  batch_size: 64
+
+
+  log_freq_eps: 1

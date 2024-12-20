@@ -1,0 +1,51 @@
+hyperparams:
+  aim_repo: "/home/hqvo2/Projects/aim_experiments/paper_multimodal_test_phase"
+  experiment_name: "ddsm-birad3-strain-lval-v2-test-2classes-image-tabular-classifier"
+  run_desc: "fusion_clip-vit-bigG_224_lr0.01_freeze-backbone"
+  
+  combine_crossval: False
+  
+  save_root:  "/home/hqvo2/Projects/MultiMEDal_multimodal_medical/experiments/breast_cancer_multimodal_paper/clip-vit-bigG_combined_image_tabular_classifier"
+
+  dataset: [
+      ["CBIS-DDSM-tfds-with-tabular-2classes-birad3"],
+      ["CBIS-DDSM-tfds-with-tabular-2classes-birad3"],
+      ["CBIS-DDSM-tfds-with-tabular-2classes-birad3"],
+  ]
+  datadir: [[None], [None], [None]]
+  dataset_partition: [['train'], ['val'], ['test']]
+
+  kfolds_train_split: {
+    "enable": True,
+    "k_folds": 2,
+    "seed": 42
+  }
+  use_more_data_for_validation: True
+
+  data_type: "image_tabular"
+  collate_fn: "breast_cancer_patch_tabular"
+  tab_to_text: True
+  group_age: null
+  
+  image_size: 224
+
+  model_name: "open_clip"
+  pretrain_model_name: "ViT-bigG-14"
+  pretrain_data: "laion2b_s39b_b160k"
+  drop_rate: 0.7
+
+  freeze_backbone: True
+  
+  ckpts_list: [
+    "/home/hqvo2/Projects/MultiMEDal_multimodal_medical/experiments/evalclip-vit-bigG_combined_image_tabular_classifier/877317_2023-12-26 22:21:29/seed_42/best_state.pkl",
+    "/home/hqvo2/Projects/MultiMEDal_multimodal_medical/experiments/evalclip-vit-bigG_combined_image_tabular_classifier/892090_2023-12-26 22:49:39/seed_0/best_state.pkl",
+    "/home/hqvo2/Projects/MultiMEDal_multimodal_medical/experiments/evalclip-vit-bigG_combined_image_tabular_classifier/906675_2023-12-26 23:18:25/seed_1/best_state.pkl",
+    "/home/hqvo2/Projects/MultiMEDal_multimodal_medical/experiments/evalclip-vit-bigG_combined_image_tabular_classifier/920431_2023-12-26 23:46:05/seed_1234/best_state.pkl",
+    "/home/hqvo2/Projects/MultiMEDal_multimodal_medical/experiments/evalclip-vit-bigG_combined_image_tabular_classifier/934477_2023-12-27 00:14:50/seed_3407/best_state.pkl"
+  ]
+
+  njobs: 16
+  batch_size: 32
+
+
+  log_freq_eps: 1

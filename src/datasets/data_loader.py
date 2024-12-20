@@ -9,6 +9,7 @@ def get_dataloaders(
     val_sampler=None,
     batch_size: int = 64,
     njobs: int = 4,
+    custom_collate_fn=None
 ):
     "Builds a set of dataloaders with a batch_size"
 
@@ -20,6 +21,7 @@ def get_dataloaders(
         num_workers=njobs,
         sampler=train_sampler,
         persistent_workers=True,
+        collate_fn=custom_collate_fn
     )
 
     if val_dataset is None:
@@ -31,6 +33,7 @@ def get_dataloaders(
         num_workers=njobs,
         sampler=val_sampler,
         persistent_workers=True,
+        collate_fn=custom_collate_fn
     )
 
     test_dataloader = DataLoader(
@@ -39,6 +42,7 @@ def get_dataloaders(
         batch_size=batch_size,
         num_workers=njobs,
         persistent_workers=True,
+        collate_fn=custom_collate_fn
     )
 
     return train_dataloader, val_dataloader, test_dataloader
