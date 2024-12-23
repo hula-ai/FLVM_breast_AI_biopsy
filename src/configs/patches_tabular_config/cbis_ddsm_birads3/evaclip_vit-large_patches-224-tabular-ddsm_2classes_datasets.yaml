@@ -1,25 +1,22 @@
 hyperparams:
   aim_repo: "/home/hqvo2/Projects/aim_experiments/breast_cancer_base_image_tabular"
-  experiment_name: "ddsm-2classes-image-tabular-classifier"
-  run_desc: "fusion_evaclip-vit-base_224_lr0.01_freeze-backbone"
+  experiment_name: "ddsm-birad3-2classes-image-tabular-classifier"
+  run_desc: "fusion_evaclip-vit-large_224_lr0.01_freeze-backbone"
   trial_runs: {
     "enable": True,
     "random_seeds": [42, 0, 1, 1234, 3407]
   }
-  save_root:  "/home/hqvo2/Projects/MultiMEDal_multimodal_medical/experiments/evaclip-vit-base_combined_image_tabular_classifier"
+  save_root:  "/home/hqvo2/Projects/MultiMEDal_multimodal_medical/experiments/evaclip-vit-large_combined_image_tabular_classifier"
 
   distributed_mode: 'DDP'
   mixed_precision: 'fp16'
 
-  seed: 42
-
   dataset: [
-      ["CBIS-DDSM-tfds-with-tabular-2classes"],
-      ["CBIS-DDSM-tfds-with-tabular-2classes"],
-      ["CBIS-DDSM-tfds-with-tabular-2classes"],
+      ["CBIS-DDSM-tfds-with-tabular-2classes-birad3"],
+      ["CBIS-DDSM-tfds-with-tabular-2classes-birad3"],
+      ["CBIS-DDSM-tfds-with-tabular-2classes-birad3"],
   ]
   datadir: [[None], [None], [None]]
-
   dataset_partition: [['train'], ['val'], ['test']]
 
   kfolds_train_split: {
@@ -27,19 +24,18 @@ hyperparams:
     "k_folds": 2,
     "seed": 42
   }  
-  
+
   data_type: "image_tabular"
   collate_fn: "breast_cancer_patch_tabular"
   tab_to_text: True
-  transform: None
   group_age: null
   
   image_size: 224
 
   find_unused_parameters: True
   model_name: "open_clip"
-  pretrain_model_name: 'EVA02-B-16'
-  pretrain_data: 'merged2b_s8b_b131k'
+  pretrain_model_name: 'EVA02-L-14'
+  pretrain_data: 'merged2b_s4b_b131k'
   freeze_backbone: True
   
   drop_rate: 0.7
@@ -48,7 +44,7 @@ hyperparams:
   pretrain_ckpt: null
   num_epochs: 20
   warmup_eps: 2
-  njobs: 4
+  njobs: 10
   batch_size: 64
   lr: 0.01
   use_weighted_classes: False

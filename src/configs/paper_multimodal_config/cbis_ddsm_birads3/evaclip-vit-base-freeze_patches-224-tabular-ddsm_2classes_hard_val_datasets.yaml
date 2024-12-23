@@ -1,0 +1,52 @@
+hyperparams:
+  aim_repo: "/home/hqvo2/Projects/aim_experiments/paper_multimodal_test_phase"
+  experiment_name: "ddsm-birad3-hard-val-2classes-image-tabular-classifier"
+  run_desc: "fusion_evaclip-vit-base_224_lr0.01_freeze-backbone"
+  
+  combine_crossval: False
+
+  save_root:  "/home/hqvo2/Projects/MultiMEDal_multimodal_medical/experiments/breast_cancer_multimodal_paper/evaclip-vit-base_combined_image_tabular_classifier"
+
+  dataset: [
+      ["CBIS-DDSM-tfds-with-tabular-2classes-birad3"],
+      ["CBIS-DDSM-tfds-with-tabular-2classes-birad3"],
+      ["CBIS-DDSM-tfds-with-tabular-2classes-birad3"],
+  ]
+  datadir: [[None], [None], [None]]
+  dataset_partition: [['train'], ['val'], ['test']]
+
+  kfolds_train_split: {
+    "enable": True,
+    "k_folds": 2,
+    "seed": 42
+  }
+  use_more_data_for_validation: True
+
+  combine_crossval: False
+  data_type: "image_tabular"
+  collate_fn: "breast_cancer_patch_tabular"
+  tab_to_text: True
+  group_age: null
+  
+  image_size: 224
+
+  model_name: "open_clip"
+  pretrain_model_name: 'EVA02-B-16'
+  pretrain_data: 'merged2b_s8b_b131k'
+  drop_rate: 0.7
+
+  freeze_backbone: True
+  
+  ckpts_list: [
+    "/home/hqvo2/Projects/MultiMEDal_multimodal_medical/experiments/evaclip-vit-base_combined_image_tabular_classifier/342920_2024-12-22 03:56:23/seed_42/best_state.pkl",
+    "/home/hqvo2/Projects/MultiMEDal_multimodal_medical/experiments/evaclip-vit-base_combined_image_tabular_classifier/342920_2024-12-22 03:56:23/seed_0/best_state.pkl",
+    "/home/hqvo2/Projects/MultiMEDal_multimodal_medical/experiments/evaclip-vit-base_combined_image_tabular_classifier/342920_2024-12-22 03:56:23/seed_1/best_state.pkl",
+    "/home/hqvo2/Projects/MultiMEDal_multimodal_medical/experiments/evaclip-vit-base_combined_image_tabular_classifier/342920_2024-12-22 03:56:23/seed_1234/best_state.pkl",
+    "/home/hqvo2/Projects/MultiMEDal_multimodal_medical/experiments/evaclip-vit-base_combined_image_tabular_classifier/342920_2024-12-22 03:56:23/seed_3407/best_state.pkl"
+  ]
+
+  njobs: 4
+  batch_size: 64
+
+
+  log_freq_eps: 1

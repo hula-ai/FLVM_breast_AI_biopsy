@@ -1,6 +1,6 @@
 hyperparams:
   aim_repo: "/home/hqvo2/Projects/aim_experiments/breast_cancer_base_image_tabular"
-  experiment_name: "ddsm-birad3-strain-lval-v2-test-2classes-image-tabular-classifier"
+  experiment_name: "ddsm-birad3-strain-lval-2classes-image-tabular-classifier"
   run_desc: "fusion_evaclip-vit-giant_224_lr0.01_freeze-backbone"
   trial_runs: {
     "enable": True,

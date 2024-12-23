@@ -19,7 +19,17 @@ hyperparams:
       ["CBIS-DDSM-tfds-with-tabular-2classes"],
   ]
   datadir: [[None], [None], [None]]
+  
+  dataset_partition: [['train'], ['val'], ['test']]
+
+  kfolds_train_split: {
+    "enable": False,
+    "k_folds": 2,
+    "seed": 42
+  }  
+  
   data_type: "image_tabular"
+  collate_fn: "breast_cancer_patch_tabular"
   tab_to_text: True
   transform: None
   group_age: null
