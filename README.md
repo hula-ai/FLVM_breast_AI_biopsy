@@ -54,6 +54,10 @@ tokenizers==0.19.1
 conda env create -f virtual_env.yaml
 ```
 
+## Dataset Preparation
+* Unzip processed_breast_cancer_data.zip
+* Modify `dataset_init.py` located at `src/datasets/dataset_init.py`. This file `dataset_init.py` file has implementations of multiple breast cancer dataset classes. To run this code, the data_root parameter will need to be modified for all CBIS-DDSM classes to point to the correct path of `CBIS-DDSM/original` in the previously unzipped folder.
+
 ## Usage
 ### For Training
 ```sh
@@ -69,13 +73,25 @@ cd src/test
 python -m torch.distributed.launch --nproc_per_node=4 --master_port=6006 \
     test.py --config-path <PATH TO YAML TESTING CONFIG>
 ```
+
+### Available Scripts
+```sh
+# Train & Test for all BI-RADS cases on CBIS-DDSM dataset
+. src/scripts/train_ddsm_script.sh
+. src/scripts/test_ddsm_script.sh
+
+# Train & Test for only BI-RADS 3 case on CBIS-DDSM dataset
+. src/scripts/train_ddsm_birads3_script.sh
+. src/scripts/test_ddsm_birads3_script.sh
+```
+
 ## Models
 
-![alt text](imgs/Multimodal_Framework.png)
+<img src="imgs/Multimodal_Framework.png" width="400">
 
 ## Results
-![alt text](imgs/CBIS-DDSM_result.png)
-![alt text](imgs/EMBED_crossval.png)
+<img src="imgs/CBIS-DDSM_result.png" width="400">
+<img src="imgs/EMBED_crossval.png" width="350">
 
 ## Citing
 ### BibTeX
