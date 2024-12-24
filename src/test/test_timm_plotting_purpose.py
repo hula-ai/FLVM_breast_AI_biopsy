@@ -85,16 +85,6 @@ parser.add_argument("--config-path", type=str)
 args = parser.parse_args()
 
 
-# %%
-# config_root = "/home/hqvo2/Projects/MultiMEDal_multimodal_medical/src/configs/paper_multimodal_config/"
-
-# %%
-# First Experiment
-# config_file = "patches_tabular_config/resnet34d_patches-224-tabular-ddsm_2classes_datasets.yaml"
-
-# %%
-# config_path = os.path.join(config_root, config_file)
-
 
 
 # %%
@@ -222,13 +212,7 @@ def test_ann_pytorch(config_dict, dataset, dataset_name: str, context_set, _run_
         
 
         state_dict = torch.load(ckpt_path, map_location="cpu")
-        # for k in list(state_dict.keys()):
-        #     # retain only base_encoder up to before the embedding layer
-        #     if k.startswith("fc") or k.startswith("head.fc"):
-        #         # remove prefix
-        #         state_dict[k + ".old"] = state_dict[k]
-        #         # delete renamed or unused k
-        #         del state_dict[k]
+
 
         msg = model.load_state_dict(state_dict, strict=False)
         accelerator.print(msg)
@@ -258,12 +242,6 @@ def test_ann_pytorch(config_dict, dataset, dataset_name: str, context_set, _run_
 
         model = accelerator.unwrap_model(model)
 
-        # if os.path.exists(os.path.join(cfg.save_path, f"ckpt_{ckpt_id}", 'best_state.pkl')):
-        #     raise ValueError('[+] Save path already existed')
-        # if os.path.exists(os.path.join(cfg.save_path, f"ckpt_{ckpt_id}", 'test_preds_proba.pt')):
-        #     raise ValueError('[+] Save path already existed')
-        # if os.path.exists(os.path.join(cfg.save_path, f"ckpt_{ckpt_id}", 'test_labels.pt')):
-        #     raise ValueError('[+] Save path already existed')
 
         os.makedirs(os.path.join(cfg.save_root, f"ckpt_{ckpt_id}"), exist_ok=True)
 
@@ -309,27 +287,6 @@ def test_ann_pytorch(config_dict, dataset, dataset_name: str, context_set, _run_
         test_preds_proba_np_list = [test_preds_proba.cpu().numpy() for test_preds_proba in test_preds_proba_list]
         test_labels_np = test_labels.cpu().numpy()
 
-        # # Visualize GradCAM
-        # device = 'cuda:0' if torch.cuda.is_available() else 'cpu'
-        # model = model.to(device)
-        # model.eval()
-        # if cfg.model_name == 'resnet34d':
-        #     target_layers = [model.layer4[-1]]
-        # elif cfg.model_name == 'convnext_tiny.fb_in1k':
-        #     target_layers = [model.stages[-1].blocks[-1]]
-
-        # dataloader = DataLoader(
-        #     dataset,
-        #     shuffle=False,
-        #     batch_size=32,
-        #     num_workers=cfg.njobs,     
-        #     sampler=data_sampler,   
-        #     persistent_workers=True,
-        #     collate_fn=custom_collate
-        # )
-
-        # aim_viss = vis_gradcam_mamm(dataloader, model, target_layers, device, num_log_images=300)
-        # run.track(value=aim_viss, name='GradCAM', step=0, context={'dataset': dataset_name})
         
         if len(test_labels.shape) == 1: # binary classes or multiclasses
             if n_classes == 2:                
@@ -383,14 +340,6 @@ def test_ann_pytorch(config_dict, dataset, dataset_name: str, context_set, _run_
     
     
 
-# %%
-# if config_dict["dataset"] in ["CBIS-DDSM-whole-mamm", 'CDD-CESM-DM-whole-mamm-test-only', "EMBED-whole-mamm", "CSAWCC-whole-mamm-test-only"]:
-#     transform_dict = build_transform_dict_mamm(input_size=config_dict["image_size"])
-# elif config_dict["dataset"] in ['CBIS-DDSM-tfds', 'EMBED-tfds']:
-#     transform_dict = build_transform_dict(input_size=config_dict['image_size'])
-
-# transform_dict = build_transform_dict(input_size=config_dict['image_size'])
-# transform_dict = build_transform_dict_mamm(input_size=config_dict["image_size"])
 mamm_datasets = ["CBIS-DDSM-whole-mamm", "CBIS-DDSM-whole-mamm-breast-density", "CBIS-DDSM-whole-mamm-abnormality", "EMBED-whole-mamm", "EMBED-whole-mamm-unique-mapping", "BMCD-whole-mamm", "INbreast-whole-mamm-train-only"]
 patch_datasets = ["CBIS-DDSM-tfds", "EMBED-tfds", "EMBED-unique-mapping-tfds", "INbreast-tfds", 
                     'CBIS-DDSM-tfds-2classes', 'EMBED-tfds-2classes','EMBED-unique-mapping-tfds-2classes',
@@ -516,16 +465,6 @@ context_list = [{"subset": "train"}, {"subset": "val"}, {"subset": "test"}]
 
 run_hash = None
 for dataset_name, data_dir, dataset, context_name in zip(dataset_names, data_dirs, datasets, context_list):
-    # if context_name == {"subset": "train"}:
-    #     continue
-
-    # tobedel
-    # config_dict['dataset'] = dataset_name
-    # config_dict['datadir'] = data_dir
-    # run_desc_temp = config_dict['run_desc'] 
-    # config_dict['run_desc'] = f'{run_desc}_test-{dataset_name}'
-    # test_dataset = get_datasets(dataset_name=dataset_name)
-    
 
     args = (config_dict, dataset, dataset_name, context_name, run_hash, dataset_idx, 10)
     run_hash = test_ann_pytorch(*args)
