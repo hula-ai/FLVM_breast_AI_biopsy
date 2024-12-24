@@ -1,4 +1,6 @@
 * Config files are structured in two sub-directories as below. One is used for training and the other is for testing
+* For training configuration files (configuration files located in the `patches_tabular_config` directory), there are two hyperameters need to be changed `aim_repo` (for logging path) and `save_root` (for checkpoint path)
+* For testing configuration files (configuration files located in `paper_multimodal_config` directory), beside `aim_repo` and `save_root`, there is also a hyper-parameter `ckpts_list` need changing. This is a list of pathes to all saved checkpoints.
 
 ```sh
 .
